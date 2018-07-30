@@ -1,0 +1,9 @@
+{
+    "callbackUrl": "www.google.lk",
+    "clientName": "rest_api_publisher",
+    "tokenScope": "Production",
+    "owner": "admin",
+    "grantType": "password refresh_token",
+    "saasApp": true
+}
+

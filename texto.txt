@@ -1,0 +1,60 @@
+
+h -j -v -a admin:admin POST http://wso2:9763/client-registration/v0.10/register callbackUrl=www.google.lk clientName=rest_api_publisher tokenScope=Production owner=admin grantType="password refresh_token" saasApp=true
+
+
+h -j POST http://wso2:9763/client-registration/v0.10/register Authorization:"Basic YWRtaW46YWRtaW4=" callbackUrl=www.google.lk clientName=rest_api_publisher tokenScope=Production owner=admin grantType="password refresh_token" saasApp=true
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Thu, 26 Jul 2018 19:16:53 GMT
+Server: WSO2 Carbon Server
+Transfer-Encoding: chunked
+
+
+{
+    "appOwner": null,
+    "callBackURL": "www.google.lk",
+    "clientId": "bWkjlAwfpgrFCN98RgPL27Gc84Qa",
+    "clientName": null,
+    "clientSecret": "AUThh9iLEZ_GFD_1MiwmQYihUhYa",
+    "isSaasApplication": true,
+    "jsonString": "{\"grant_types\":\"refresh_token urn:ietf:params:oauth:grant-type:saml2-bearer implicit password iwa:ntlm client_credentials authorization_code\",\"redirect_uris\":\"www.google.lk\",\"client_name\":\"admin_rest_api_publisher\",\"username\":\"admin\"}"
+}
+
+
+h -v --form -a bWkjlAwfpgrFCN98RgPL27Gc84Qa:AUThh9iLEZ_GFD_1MiwmQYihUhYa https://wso2:8243/token grant_type=password username=admin password=admin scope="apim:api_view"
+
+HTTP/1.1 200 OK
+Cache-Control: no-store
+Connection: keep-alive
+Content-Type: application/json
+Date: Thu, 26 Jul 2018 19:46:53 GMT
+Pragma: no-cache
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
+
+{
+    "access_token": "48858c27-8f00-3697-8188-e8302de3b84a",
+    "expires_in": 3600,
+    "refresh_token": "4ed13ed3-9768-375d-adc1-875e730cc85a",
+    "scope": "apim:api_view",
+    "token_type": "Bearer"
+}
+
+GET https://127.0.0.1:9443/api/am/publisher/v0.10/apis
+Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
+
+h -v https://wso2:9443/api/am/publisher/v0.10/apis Authorization: "Bearer 48858c27-8f00-3697-8188-e8302de3b84a"
+
+
+
+https://docs.wso2.com/display/AM200/apidocs/publisher/#!/operations#APICollection#apisGet
+
+
+
+docker run -it -d --rm --network apigtw_default -p5000:9443 -p9763:9763 -p8243:8243 --name wso2 f7d71c1f02ee
+
+alias h="docker exec -it httpie http --verify no "
+
