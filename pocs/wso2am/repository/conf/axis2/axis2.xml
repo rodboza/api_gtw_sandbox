@@ -58,8 +58,8 @@
     <parameter name="ModulesDirectory">axis2modules</parameter>
 
     <!-- User agent and the server details to be used in the http communication -->
-    <parameter name="userAgent" locked="true">WSO2 AM 2.1.0</parameter>
-    <parameter name="server" locked="true">WSO2 AM 2.1.0</parameter>
+    <parameter name="userAgent" locked="true">WSO2 AM 2.5.0</parameter>
+    <parameter name="server" locked="true">WSO2 AM 2.5.0</parameter>
 
     <!-- During a fault, stacktrace can be sent with the fault message. The following flag -->
     <!-- will control that behaviour -->
@@ -556,7 +556,7 @@
             <filePath>repository/resources/security/sslprofiles.xml</filePath>
             <fileReadInterval>600000</fileReadInterval>
         </parameter>
-        <!--<parameter name="HostnameVerifier">DefaultAndLocalhost</parameter>-->
+        <parameter name="HostnameVerifier">AllowAll</parameter>
             <!--supports Strict|AllowAll|DefaultAndLocalhost or the default if none specified -->
     </transportSender>
 

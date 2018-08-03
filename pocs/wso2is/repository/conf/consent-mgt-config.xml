@@ -18,7 +18,7 @@
     <DataSource>
         <!-- Include a data source name (jndiConfigName) from the set of data sources defined in master-datasources
         .xml -->
-        <Name>jdbc/WSO2CarbonDB</Name>
+        <Name>jdbc/CarbonDB</Name>
     </DataSource>
     <PIIController>
         <PiiController>change-me</PiiController>

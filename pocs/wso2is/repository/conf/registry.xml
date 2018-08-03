@@ -28,8 +28,31 @@
     <registryRoot>/</registryRoot>
 
     <dbConfig name="wso2registry">
-        <dataSource>jdbc/WSO2CarbonDB</dataSource>
+        <dataSource>jdbc/LocalRegistryDB</dataSource>
     </dbConfig>
+
+    <dbConfig name="carbondb">
+        <dataSource>jdbc/CarbonDB</dataSource>
+    </dbConfig>
+
+    <remoteInstance url="https://localhost">
+        <id>gov</id>
+        <dbConfig>carbondb</dbConfig>
+        <cacheId>root@jdbc:mysql://mysql:3306/carbon_db</cacheId>
+        <readOnly>false</readOnly>
+        <enableCache>true</enableCache>
+        <registryRoot>/</registryRoot>
+    </remoteInstance>
+
+    <mount path="/_system/governance" overwrite="true">
+        <instanceId>gov</instanceId>
+        <targetPath>/_system/governance</targetPath>
+    </mount>
+
+    <mount path="/_system/config" overwrite="true">
+        <instanceId>gov</instanceId>
+        <targetPath>/_system/config</targetPath>
+    </mount>
 
    <handler class="org.wso2.carbon.identity.entitlement.policy.finder.registry.RegistryPolicyHandler">
  <filter class="org.wso2.carbon.identity.entitlement.policy.finder.registry.RegistryPolicyMediaTypeMatcher">
