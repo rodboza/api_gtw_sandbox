@@ -8,6 +8,7 @@ RUN apk add zip && \
     rm /opt/wso2is-${APIM_VERSION}.zip
 
 COPY ./repository /opt/wso2is-${APIM_VERSION}/repository
+COPY ./mysql-connector-java-5.1.46.jar /opt/wso2is-${APIM_VERSION}/repository/components/lib
 EXPOSE 9443 9763 4000
 WORKDIR /opt/wso2is-${APIM_VERSION}
 ENTRYPOINT ["bin/wso2server.sh"]
