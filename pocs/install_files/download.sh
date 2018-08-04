@@ -8,5 +8,9 @@ then
   wget https://www.dropbox.com/s/7iq7ia5nh52ulri/wso2am-2.5.0.zip
 fi
 
+cp wso2is-5.6.0.zip ../wso2is/
+cp wso2am-2.5.0.zip ../wso2am/
+cp wso2am-2.5.0.zip ../wso2al/
+echo fim
 
 

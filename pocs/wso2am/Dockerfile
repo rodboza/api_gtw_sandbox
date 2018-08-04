@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine3.8
 
 ARG APIM_VERSION=${APIM_VERSION:-2.5.0}
 RUN mkdir /opt
-COPY ../install_files/wso2am-${APIM_VERSION}.zip /opt/
+COPY ./wso2am-${APIM_VERSION}.zip /opt/
 RUN apk add zip && \
     unzip /opt/wso2am-${APIM_VERSION}.zip -d /opt && \
     rm /opt/wso2am-${APIM_VERSION}.zip
