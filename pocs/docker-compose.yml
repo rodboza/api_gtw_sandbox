@@ -75,3 +75,8 @@ services:
       - wso2al
       - wso2is
 
+  httpie:
+    build: httpie/.
+    restart: always
+    command: tail -F anything
+    container_name: httpie
