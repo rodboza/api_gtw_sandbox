@@ -16,7 +16,7 @@ services:
       retries: 5
   # WSO2 API Manager as Analytics
   wso2al: 
-    build: ./wso2al/. 
+    image: rbz/wso2al
     ports:
       - "4041:4041"
       - "9444:9443"
@@ -32,7 +32,7 @@ services:
       - mysql
   # WSO2 Identity Server as Key Manager
   wso2is:
-    build: ./wso2is/.
+    image: rbz/wso2is
     ports:
       - "9445:9443"
       - "9765:9763"
@@ -49,7 +49,7 @@ services:
       - wso2al
   # WSO2 API Manager
   wso2am:
-    build: ./wso2am/.
+    image: rbz/wso2am
     ports:
       - "8243:8243"
       - "8280:8280"
@@ -70,7 +70,7 @@ services:
       - wso2is
 
   httpie:
-    build: httpie/.
+    image: rbz/httpie
     restart: always
     command: tail -F anything
     container_name: httpie
