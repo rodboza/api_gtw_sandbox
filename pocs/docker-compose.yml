@@ -1,7 +1,7 @@
 version: '2.3'
 services:
   mysql:
-     image: rbz/mysql
+    image: rbz/mysql
     ports:
       - 3306
     environment:
