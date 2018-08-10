@@ -16,7 +16,7 @@ copiar_arquivo()
 {
   ARQUIVO=$1
   DESTINO=$2
-  if !([ -e ${DESTINO}${ARQUIVO}])
+  if !([ -e ${DESTINO}${ARQUIVO} ])
   then
     echo Copiando o arquivo ${ARQUIVO} para ${DESTINO}
     cp ${FROM}${ARQUIVO} ${DESTINO}
