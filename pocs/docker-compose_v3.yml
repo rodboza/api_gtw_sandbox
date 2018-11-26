@@ -19,11 +19,12 @@ services:
       - "4041:4041"
       - "9444:9443"
       - "9764:9763"
-    #healthcheck:
-    #  test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
-    #  interval: 10s
-    #  timeout: 240s
-    #  retries: 10
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
+      interval: 200s
+      timeout: 40s
+      retries: 10
+      start_period: 30s
     depends_on:
       - mysql
     links:
@@ -34,11 +35,12 @@ services:
     ports:
       - "9445:9443"
       - "9765:9763"
-    #healthcheck:
-    #  test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
-    #  interval: 10s
-    #  timeout: 240s
-    #  retries: 10
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
+      interval: 200s
+      timeout: 40s
+      retries: 10
+      start_period: 60s
     depends_on:
       - mysql
       - wso2al
@@ -53,11 +55,12 @@ services:
       - "8280:8280"
       - "9443:9443"
       - "9763:9763"
-    #healthcheck:
-    #  test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
-    #  interval: 10s
-    #  timeout: 240s
-    #  retries: 10
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:9443/carbon/admin/login.jsp"]
+      interval: 200s
+      timeout: 40s
+      retries: 10
+      start_period: 90s
     depends_on:
       - mysql
       - wso2al
